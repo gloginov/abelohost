@@ -15,6 +15,11 @@
   
   --border-default: 1px solid var(--c-gray);
   --border-radius: 10px;
+
+  --sat: env(safe-area-inset-top);
+  --sar: env(safe-area-inset-right);
+  --sab: env(safe-area-inset-bottom);
+  --sal: env(safe-area-inset-left);
 }
 
 @media (prefers-color-scheme: dark) {
@@ -45,6 +50,7 @@ body {
   color: #333;
 }
 
+html,
 body {
   padding-top: env(safe-area-inset-top);
   padding-bottom: env(safe-area-inset-bottom);
