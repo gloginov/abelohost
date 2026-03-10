@@ -2,5 +2,8 @@
   "env": {
     "NEXT_PUBLIC_API_URL": "https://dummyjson.com",
     "NEXT_PUBLIC_PLACEHOLDER_URL": "https://placehold.co"
+  },
+  "protection": {
+    "unprotectedRoutes": ["/manifest.json", "/icon-*.png", "/sw.js"]
   }
 }
