@@ -12,6 +12,7 @@ export const metadata: Metadata = {
   manifest: '/manifest.json',
 };
 
+
 export const viewport = {
   width: 'device-width',
   initialScale: 1,
@@ -28,14 +29,11 @@ export default function RootLayout({
   return (
     <html lang="en">
       <head>
-        {/* Подключаем manifest.json */}
-        <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials" />
-
         {/* Apple-specific (PWA на iOS) */}
-        <meta name="apple-mobile-web-app-capable" content="yes" />
         <meta name="apple-mobile-web-app-status-bar-style" content="black-translucent" />
         <meta name="apple-mobile-web-app-title" content="NextApp" />
-
+        <meta name="mobile-web-app-capable" content="yes"></meta>
+        
       </head>
       <body>
         <Layout>{children}</Layout>
