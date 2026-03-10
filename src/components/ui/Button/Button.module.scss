@@ -1,0 +1,73 @@
+@use '@/styles/mixins';
+
+.button {
+  background: var(--foreground);
+  color: var(--background);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  gap: 8px;
+  position: relative;
+  border-radius: var(--border-radius);
+  overflow: hidden;
+  font-size: 1rem;
+  padding: 0.8rem 1rem;
+  border: none;
+  box-sizing: border-box;
+  width: 100%;
+  cursor: pointer;
+  position: relative;
+
+  &__loader {
+    position: absolute;
+    width: 100%;
+    height: 100%;
+    background-color: var(--foreground);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  &__loaderIcon {
+    @include mixins.loader;
+
+    width: 1rem;
+    height: 1rem;
+  }
+
+  &:hover {
+    opacity: 0.8;
+  }
+
+  &:active {
+    opacity: 0.9;
+  }
+
+  &--secondary {
+    background: var(--c-gray);
+    color: var(--c-white);
+
+    &:disabled {
+      background: #ccc;
+      cursor: not-allowed;
+    }
+  }
+
+  &--favorite {
+    width: 40px;
+    flex: 0 0 auto;
+    background: var(--background);
+    color: var(--foreground);
+
+    &:hover {
+      background: var(--c-gray);
+      color: var(--c-red);
+    }
+
+    &_active {
+      background: var(--c-red);
+      color: var(--c-white);
+    }
+  }
+}

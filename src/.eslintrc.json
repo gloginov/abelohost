@@ -1,0 +1,18 @@
+// .eslintrc.json
+{
+  "extends": [
+    "next/core-web-vitals",
+    "next/typescript",
+    "plugin:@typescript-eslint/recommended",
+    "plugin:react-hooks/recommended",
+    "prettier"
+  ],
+  "plugins": ["@typescript-eslint", "import"],
+  "rules": {
+    "@typescript-eslint/no-unused-vars": ["error", { "argsIgnorePattern": "^_" }],
+    "@typescript-eslint/explicit-function-return-type": "off",
+    "import/order": ["error", { "groups": ["builtin", "external", "internal"] }],
+    "no-console": ["warn", { "allow": ["error"] }],
+    "react-hooks/exhaustive-deps": "error"
+  }
+}

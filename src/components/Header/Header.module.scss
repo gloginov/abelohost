@@ -1,0 +1,92 @@
+@use '@/styles/mixins';
+
+.header {
+  z-index: 100;
+  color: var(--background);
+
+  &__user {
+    display: flex;
+    flex-flow: row;
+  }
+
+  &__fixed {
+    background: #1e1f2a;
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.1);
+    position: fixed;
+    height: var(--header-height);
+    top: 0;
+    left: 0;
+    right: 0;
+
+    svg {
+      color: var(--c-red);
+    }
+  }
+
+  &__icon {
+    margin-right: 0.3rem;
+  }
+
+  &__link {
+    @include mixins.link;
+
+    color: var(--c-white);
+    display: flex;
+    flex-flow: row;
+    align-items: center;
+    margin-right: 0.5rem;
+
+    &_hide_mobile {
+      display: none;
+
+      @media (min-width: 500px) {
+        display: flex;
+      }
+    }
+  }
+
+  &__container {
+    @include mixins.container;
+
+    &_sm_padding {
+      padding: 0.2rem 2rem;
+    }
+
+    &_mobile {
+      @media (max-width: 950px) {
+        flex-flow: column;
+        align-items: center;
+      }
+    }
+  }
+
+  &__logo {
+    font-size: 2.2rem;
+    font-weight: 700;
+    color: var(--c-white);
+
+    @media (max-width: 950px) {
+      text-align: center;
+    }
+
+    a {
+      &:hover {
+        opacity: 0.8;
+      }
+    }
+
+    &_dot {
+      color: var(--c-red);
+    }
+  }
+
+  &__banner {
+    margin-top: var(--header-height);
+    background-color: var(--c-dark);
+
+    &__image {
+      width: 100%;
+      object-fit: cover;
+    }
+  }
+}

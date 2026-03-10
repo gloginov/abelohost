@@ -1,0 +1,92 @@
+@use '@/styles/mixins';
+
+.footer {
+  background: var(--foreground);
+  color: var(--background);
+  margin-top: auto;
+
+  &__container {
+    @include mixins.container;    
+  }
+  
+  &__wrap {
+    width: 100%;
+  }
+
+  &__grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 2rem;
+    margin-bottom: 2rem;
+  }
+  
+  &__column {
+    h3 {
+      font-size: 1.2rem;
+      margin-bottom: 1rem;
+      color: #0070f3;
+    }
+    
+    ul {
+      li {
+        margin-bottom: 0.5rem;
+        
+        a {
+          color: #999;
+          transition: color 0.3s ease;
+          
+          &:hover {
+            color: #0070f3;
+          }
+        }
+      }
+    }
+  }
+  
+  &__social {
+    display: flex;
+    gap: 1rem;
+    margin-top: 1rem;
+    
+    a {
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      width: 36px;
+      height: 36px;
+      border-radius: 50%;
+      background: #333;
+      color: #fff;
+      transition: all 0.3s ease;
+      
+      &:hover {
+        background: #0070f3;
+        transform: translateY(-3px);
+      }
+    }
+  }
+  
+  &__bottom {
+    padding-top: 2rem;
+    border-top: 1px solid #333;
+    text-align: center;
+    color: #999;
+    font-size: 0.9rem;
+  }
+}
+
+@media (max-width: 768px) {
+  .footer {
+    &__grid {
+      grid-template-columns: repeat(2, 1fr);
+    }
+  }
+}
+
+@media (max-width: 480px) {
+  .footer {
+    &__grid {
+      grid-template-columns: 1fr;
+    }
+  }
+}

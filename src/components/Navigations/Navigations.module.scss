@@ -1,0 +1,197 @@
+@use '@/styles/mixins';
+
+.navigation {
+  border-top: 3px solid var(--c-red);
+  border-bottom: var(--border-default);
+  color: var(--foreground);
+  position: sticky;
+  top: var(--header-height);
+  z-index: 100;
+  background-color: var(--background);
+
+  &__container {
+    @include mixins.container;
+    display: flex;
+    align-items: center;
+    justify-content: end;
+    position: relative;
+  }
+
+  &__burger {
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    width: 2rem;
+    height: 2rem;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+
+    span {
+      width: 2rem;
+      height: 0.25rem;
+      background: var(--foreground);
+      border-radius: 10px;
+      transition: all 0.3s linear;
+    }
+  }
+
+  &__nav {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: var(--background);
+    padding-top: calc(var(--header-height) + 2rem);
+    transform: translateX(-100%);
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+    z-index: 99;
+  }
+
+  &_open &__nav {
+    transform: translateX(0);
+    opacity: 1;
+    visibility: visible;
+  }
+
+  &__menu {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 1.5rem;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+
+    a {
+      font-size: 1.25rem;
+      font-weight: 500;
+      transition: color 0.3s ease;
+      text-decoration: none;
+      color: inherit;
+
+      &.active {
+        color: var(--c-red);
+        font-weight: 600;
+      }
+    }
+  }
+
+  @media (min-width: 769px) {
+    &__burger {
+      display: none;
+    }
+
+    &__nav {
+      position: static;
+      width: 100%;
+      height: auto;
+      padding-top: 0;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      background: transparent;
+    }
+
+    &__menu {
+      flex-direction: row;
+      justify-content: start;
+      gap: 2rem;
+
+      a {
+        font-size: 1rem;
+      }
+    }
+  }
+
+  &_footer {
+    background: var(--foreground);
+    color: var(--background);
+    border-bottom: 3px solid var(--c-red);
+    border-top: none;
+    position: static;
+
+    &__burger {
+      display: none;
+    }
+
+    .navigation__nav {
+      position: static;
+      width: 100%;
+      height: auto;
+      padding-top: 0;
+      transform: none;
+      opacity: 1;
+      visibility: visible;
+      background: transparent;
+    }
+
+    .navigation__menu {
+      flex-direction: row;
+      flex-wrap: wrap;
+      justify-content: center;
+      gap: 1rem;
+
+      a {
+        font-size: 0.875rem;
+      }
+    }
+
+    @media (min-width: 769px) {
+      .navigation__menu {
+        justify-content: start;
+        gap: 2rem;
+
+        a {
+          font-size: 1rem;
+        }
+      }
+    }
+  }
+
+  &__close {
+    width: 48px;
+    height: 48px;
+    position: fixed;
+    background: transparent;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    padding: 12px;
+    min-width: 44px;
+    min-height: 44px;
+
+    right: 2rem;
+    top: 2rem;
+
+    @media (min-width: 769px) {
+      display: none;
+    }
+  }
+
+  &__close span {
+    display: block;
+    width: 2rem;
+    height: 0.25rem;
+    background: var(--foreground);
+    border-radius: 10px;
+    transition: all 0.3s linear;
+  }
+
+  &__close[aria-expanded='true'] span {
+    &:first-child {
+      transform: rotate(45deg) translate(1px, 2px);
+    }
+
+    &:last-child {
+      transform: rotate(-45deg) translate(2px, -2px);
+    }
+  }
+}

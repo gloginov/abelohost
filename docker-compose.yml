@@ -1,0 +1,25 @@
+services:
+  abelohost_shop:
+    container_name: abelohost-node
+    build:
+      context: .
+      dockerfile: .docker/npm/Dockerfile
+      target: dev
+    labels:
+      - "traefik.enable=true"
+      - "traefik.http.routers.abelohost.rule=Host(`abelohost.docker`)"
+      - "traefik.docker.network=${TRAEFIK_NETWORK_NAME}"
+      - "traefik.http.routers.abelohost.tls=true"
+    volumes:
+      - ./src:/usr/src/app
+    networks:
+      - traefik
+      - bridge
+    # ports:
+      # - "5173:80"
+
+networks:
+  bridge: ~
+  traefik:
+    external: true
+    name: ${TRAEFIK_NETWORK_NAME}
