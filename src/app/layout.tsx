@@ -29,7 +29,7 @@ export default function RootLayout({
     <html lang="en">
       <head>
         {/* Подключаем manifest.json */}
-        <link rel="manifest" href="/manifest.json" />
+        <link rel="manifest" href="/manifest.json" crossOrigin="use-credentials" />
 
         {/* Apple-specific (PWA на iOS) */}
         <meta name="apple-mobile-web-app-capable" content="yes" />
