@@ -49,8 +49,8 @@ export const useAuthStore = create<AuthState>((set: SetAuthState) => ({
 }));
 
 // Загрузка состояния из localStorage при инициализации
-const savedToken = localStorage.getItem('authToken');
-const savedUser = localStorage.getItem('authUser');
+const savedToken = typeof window !== 'undefined' ? localStorage?.getItem('authToken') : null;
+const savedUser = typeof window !== 'undefined' ? localStorage?.getItem('authUser') : null;
 
 if (savedToken && savedUser) {
   try {
