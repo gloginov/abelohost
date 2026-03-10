@@ -6,6 +6,7 @@ const projectDir = path.join(process.cwd(), '..');
 loadEnvConfig(projectDir);
 
 const nextConfig: NextConfig = {
+  distDir: '.next',
   /* config options here */
   allowedDevOrigins: ['abelohost.docker', '*.abelohost.docker'],
   async headers() {
