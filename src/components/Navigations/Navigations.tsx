@@ -75,7 +75,7 @@ const Navigation = (props: { useFooter?: boolean }) => {
                   href="/profile"
                   onClick={() => !useFooter && setIsMenuOpen(false)}
                 >
-                  Профиль
+                  Profile
                 </Link>
               </li>
             )}
