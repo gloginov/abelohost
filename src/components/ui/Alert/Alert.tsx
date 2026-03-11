@@ -26,7 +26,7 @@ export const Alert = ({
         <button 
           className={styles.alert__close}
           onClick={onClose}
-          aria-label="Закрыть"
+          aria-label="Close"
         >
           ×
         </button>
