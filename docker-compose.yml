@@ -4,22 +4,9 @@ services:
     build:
       context: .
       dockerfile: .docker/npm/Dockerfile
-      target: dev
-    labels:
-      - "traefik.enable=true"
-      - "traefik.http.routers.abelohost.rule=Host(`abelohost.docker`)"
-      - "traefik.docker.network=${TRAEFIK_NETWORK_NAME}"
-      - "traefik.http.routers.abelohost.tls=true"
+      target: prod
+      # change target for development -> dev
     volumes:
       - ./src:/usr/src/app
-    networks:
-      - traefik
-      - bridge
-    # ports:
-      # - "5173:80"
-
-networks:
-  bridge: ~
-  traefik:
-    external: true
-    name: ${TRAEFIK_NETWORK_NAME}
+    ports:
+      - "80:3000"

@@ -22,7 +22,11 @@ const ProductList = () => {
         const data = await getProducts(12);
         setProducts(data.products);
       } catch (err: unknown) {
-        setError('Failed to load products. Please try again.');
+        if (err instanceof Error) {
+          setError(err.message);
+        } else {
+          setError('Failed to load products. Please try again.');
+        }
       } finally {
         setIsLoading(false);
       }

@@ -1,7 +1,5 @@
-import ProductList from "@/components/Catalog/ProductList/ProductList";
+import ProductList from '@/components/Catalog/ProductList/ProductList';
 
 export default function Home() {
-  return (
-      <ProductList />
-  );
+  return <ProductList />;
 }

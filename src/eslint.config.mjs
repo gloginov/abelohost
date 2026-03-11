@@ -13,6 +13,13 @@ const eslintConfig = defineConfig([
     "build/**",
     "next-env.d.ts",
   ]),
+
+  {
+    ignores: [
+      "types/validator.ts",
+      "types/routes.d.ts",
+    ]
+  }
 ]);
 
 export default eslintConfig;

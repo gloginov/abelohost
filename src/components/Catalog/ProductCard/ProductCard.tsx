@@ -19,7 +19,7 @@ const ProductCard = ({ product, isAuthenticated = false }: ProductCardProps) => 
 
   const handleAddToCart = () => {
     if (!isAuthenticated) {
-      alert('Для добавления товаров в корзину необходимо авторизоваться');
+      alert('To add items to your cart, you must log in.');
       return;
     }
 

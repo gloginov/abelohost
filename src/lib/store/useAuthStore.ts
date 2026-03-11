@@ -57,6 +57,13 @@ if (savedToken && savedUser) {
     const user = JSON.parse(savedUser);
     useAuthStore.getState().login(user, savedToken);
   } catch (e) {
+
+    if (e instanceof Error) {
+      console.error(e.message);
+    } else {
+      console.error('Failed to login user. Please try again.');
+    }
+
     localStorage.removeItem('authToken');
     localStorage.removeItem('authUser');
   }

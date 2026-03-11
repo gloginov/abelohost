@@ -7,8 +7,7 @@ loadEnvConfig(projectDir);
 
 const nextConfig: NextConfig = {
   distDir: '.next',
-  /* config options here */
-  allowedDevOrigins: ['abelohost.docker', '*.abelohost.docker'],
+  allowedDevOrigins: ['abelohost.docker', '*.abelohost.docker', 'localhost', '*.localhost', '127.0.0.1'],
 
   images: {
     remotePatterns: [
