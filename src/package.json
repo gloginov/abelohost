@@ -12,8 +12,7 @@
     "format:check": "prettier --check \"app/**/*.{ts,tsx,json,css}\"",
     "stylelint": "stylelint \"app/**/*.css\"",
     "type-check": "tsc --noEmit",
-    "vercel-build": "npm run build",
-    "prepare": "husky"
+    "vercel-build": "npm run build"
   },
   "dependencies": {
     "axios": "^1.6.0",
