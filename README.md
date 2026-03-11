@@ -1,5 +1,7 @@
 # This is e-commerce shop with auth
 
+https://abelohost-9h53kvhmh-george-loginovs-projects.vercel.app/
+
 ## Used stack:
 
 - TypeScript
@@ -23,9 +25,13 @@
     7  target: dev
     8  # change target for development -> dev
 
+##### The application is available at http://localhost
+
 #### 1.1. If you will be using traefik, add in .env:
 
     COMPOSE_FILE=docker-compose.traefik.yml
+
+##### The application is available at https://abelohost.docker
 
 ### 2. Second, copy /src/.env.sample -> /src/.env
 
